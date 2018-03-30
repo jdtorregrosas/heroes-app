@@ -1,0 +1,52 @@
+.hero-overview-container {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    .hero-overview-info-container{
+        margin-left: 8px;
+        .hero-overview-moto {
+            color: red;
+            font-weight: bold;
+            line-height: 16px;
+            font-size: 14px;
+        }
+        .hero-overview-name {
+            color: gray;
+            line-height: 0px;
+            font-size: 12px;
+        }
+        .hero-overview-height {
+            color: gray;
+            line-height: 0px;
+            font-size: 13px;
+        }
+    }   
+    .hero-overview-image-container{
+        margin-right: 20px;
+        position: relative;
+        display: flex;
+        .hero-overview-image {
+            height: 55px;
+            width: 55px;
+            align-self: center;
+            border-radius: 50%;
+        }
+        .hero-overview-circle{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 11px;
+            color: #fff;
+            line-height: 32px;
+            text-align: center;
+            background-color: rgba(255, 0, 0, 0.5);
+            position: absolute;
+            left: 32px;
+            top: 0px;
+            font-weight: bold;
+        }
+    }    
+}

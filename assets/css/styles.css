@@ -1,0 +1,11 @@
+body{
+    background-image: url("../images/background.jpeg");
+    background-size: cover;
+    color: beige;
+}
+
+@media (max-width: 1095px){
+    body{
+        background-size: initial;
+    }    
+}
