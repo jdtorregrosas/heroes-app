@@ -1,6 +1,6 @@
 <main>
   <div id="list">
-    <hero-overview class="list-child" *ngFor="let hero of heroes; let i = index"
+    <hero-overview class="list-child" *ngFor="let hero of heroes | async; let i = index"
       [hero]="hero" [position]="i+1">
     </hero-overview>
   </div>
