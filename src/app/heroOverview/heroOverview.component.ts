@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'hero-overview',
     templateUrl: './heroOverview.component.html',
     styleUrls: ['./heroOverview.component.scss']
 })
-export class heroOverviewComponent{
+export class heroOverviewComponent implements OnInit {
     @Input() hero;
     @Input() position;
 
