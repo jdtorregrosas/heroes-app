@@ -1,0 +1,16 @@
+<div id="hero-detail-container">
+    <a href="/"><i class="material-icons">home</i>HOME</a>
+    <div class="hero-detail-image-container">
+        <img id="hero-detail-image" src="{{hero._picture}}"/>
+        <div class="hero-detail-circle">{{hero._id+cardinal}}</div>
+    </div>
+    <input id="hero-detail-nickname" type="text" value="{{hero._nickname}}"/>
+    <div class="hero-detail-input-container">
+        <label for="hero-detail-name">Name:</label>
+        <input id="hero-detail-name" type="text" value="{{hero._name}}"/>
+    </div>
+    <div class="hero-detail-input-container">
+        <label for="hero-detail-height">Height:</label>
+        <input id="hero-detail-height" type="text" value="{{hero._height}}"/>
+    </div>
+</div>

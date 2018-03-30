@@ -5,23 +5,15 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: './heroOverview.component.html',
     styleUrls: ['./heroOverview.component.scss']
 })
-export class heroOverviewComponent implements OnInit {
+export class HeroOverviewComponent implements OnInit {
     @Input() hero;
     @Input() position;
 
-    name: string;
-    height: number;
-    nickname: string;
-    image: string;
     cardinal: string;
 
     constructor(){}
 
     ngOnInit() {
-        this.name = this.hero._name;
-        this.height = this.hero._height;
-        this.nickname = this.hero._nickname;
-        this.image = this.hero._picture;
 
         switch(this.position){
             case 1: 

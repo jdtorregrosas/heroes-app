@@ -1,11 +1,11 @@
 <div class="hero-overview-container">
     <div class="hero-overview-image-container">
-        <div class="hero-overview-circle">{{position + cardinal}}</div>
-        <img class="hero-overview-image" alt="hero overview image" src="{{image}}"/>
+        <div class="hero-overview-circle">{{hero._id + cardinal}}</div>
+        <img class="hero-overview-image" alt="hero overview image" src="{{hero._picture}}"/>
     </div>
     <div class="hero-overview-info-container">
-        <p class="hero-overview-moto">{{nickname}}</p>
-        <p class="hero-overview-name">{{name}}</p>
-        <p class="hero-overview-height">Estatura: {{height}}mt</p>
+        <a href="/hero/{{hero._id}}" class="hero-overview-moto">{{hero._nickname}}</a>
+        <p class="hero-overview-name">{{hero._name}}</p>
+        <p class="hero-overview-height">Estatura: {{hero._height}}mt</p>
     </div>
 </div>
