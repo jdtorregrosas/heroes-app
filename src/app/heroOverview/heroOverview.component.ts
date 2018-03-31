@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'hero-overview',
@@ -11,7 +12,9 @@ export class HeroOverviewComponent implements OnInit {
 
     cardinal: string;
 
-    constructor(){}
+    constructor(
+        @Inject(Router) private router: Router
+    ){}
 
     ngOnInit() {
 
@@ -28,5 +31,9 @@ export class HeroOverviewComponent implements OnInit {
             default:
                 this.cardinal = 'th'
         }
+    }
+
+    goToDetail(id){
+        this.router.navigate(['hero/'+id]);
     }
 }

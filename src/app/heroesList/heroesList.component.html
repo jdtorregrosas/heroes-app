@@ -1,6 +1,6 @@
 <main>
-    <div id="list">
-      <hero-overview class="list-child" *ngFor="let hero of heroes | async"
+    <div id="list" *ngIf="(state$ | async) as state">
+      <hero-overview class="list-child" *ngFor="let hero of state.heroes"
         [hero]="hero" [position]="id">
       </hero-overview>
     </div>

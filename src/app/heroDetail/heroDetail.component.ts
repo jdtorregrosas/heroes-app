@@ -1,7 +1,9 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Store, select} from '@ngrx/store';
 import { Hero } from '../interfaces/hero.type';
+import { State, RETRIEVE_HERO } from '../reducers/hero.reducer';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -13,15 +15,16 @@ export class HeroDetailComponent implements OnInit{
     id: number;
     cardinal: string;
     hero : Hero;
+    state$ : Observable<State>;
     constructor(
         @Inject(ActivatedRoute) private route: ActivatedRoute,
-        @Inject(Router) private router: Router
-    ){}
-    ngOnInit(){
+        @Inject(Router) private router: Router,
+        @Inject(Store) private store: Store<State>
+    ){
         this.id = +(this.route.snapshot.paramMap.get('id'));
-
-        this.hero = this.getHero(this.id);
-
+        this.getHero(this.id);
+    }
+    ngOnInit(){
         switch(this.id){
             case 1: 
                 this.cardinal = 'st';
@@ -35,15 +38,13 @@ export class HeroDetailComponent implements OnInit{
             default:
                 this.cardinal = 'th'
         }
-        
     }
     getHero(id){
-        return {
-            _id: id,
-            _name:'Tony Stark',
-            _nickname: 'Iron Man',
-            _height: 1.3,
-            _picture: 'http://i.annihil.us/u/prod/marvel/i/mg/6/a0/55b6a25e654e6/standard_xlarge.jpg'
-        };
+        this.store.dispatch({type: RETRIEVE_HERO, payload: id});
+        this.state$ = this.store.pipe(select('heroReducer'))
+    }
+
+    goToHome(id){
+        this.router.navigate(['/']);
     }
 }
