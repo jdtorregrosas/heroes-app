@@ -1,0 +1,50 @@
+form{
+    display: flex;
+    flex-flow: column wrap;
+}
+#hero-detail-nickname{
+    font-size: 32px;
+    font-weight: bold;
+    color: red;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: rgba(255,255,255,0.6);
+}
+.hero-detail-input-container{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: start;
+    padding: 10px;
+    input{
+        flex:1;
+        border: none;
+        background-color: transparent;
+        border-bottom: solid rgba(0,0,0,0.6) 3px;
+        border-radius: 8px;
+        font-size: 24px;
+        color: rgba(0,0,0,0.8);
+        padding: 8px;
+          
+        &.ng-invalid:not(form)  {
+            border-bottom: 3px solid #a94442; /* red */
+        }
+    }
+    label{
+        margin-right: 20px;
+        font-size: 26px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.7);
+    }
+}
+.button{
+    padding: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(135,200,0,0.7);
+    cursor: pointer;
+}
+  
+.ng-invalid:not(form)  {
+    border-bottom: 3px solid #a94442; /* red */
+}

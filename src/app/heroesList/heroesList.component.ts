@@ -12,12 +12,21 @@ export class HeroesListComponent implements OnInit{
   state$: Observable<State>;
   constructor(
       @Inject(Store) private store: Store<State>
-    ){
-        this.store.subscribe( state => console.log('Initial App State: ', state));
-    }   
+    ){}   
      
   ngOnInit(){
-    this.getHeroesFromServer();
+    this.getHeroes(state => {
+      if(!state.heroes || state.heroes.length === 0){
+        this.getHeroesFromServer();
+      }
+    });    
+  }
+
+  getHeroes(callback){
+    this.state$ = this.store.pipe(select('heroReducer'));
+    this.state$.first().subscribe(function(state){
+      callback(state);
+    })
   }
 
   getHeroesFromServer(){

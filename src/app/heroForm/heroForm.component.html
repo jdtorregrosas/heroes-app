@@ -1,0 +1,13 @@
+<form #heroForm="ngForm" (ngSubmit)="saveHero()">
+    <input id="hero-detail-nickname" name="nickname" type="text" [(ngModel)]="model._nickname"required/>
+    <div class="hero-detail-input-container">
+        <label for="hero-detail-name">Name:</label>
+        <input id="hero-detail-name"  name="name" type="text" [(ngModel)]="model._name" required/>
+    </div>
+    <div class="hero-detail-input-container">
+        <label for="hero-detail-height">Height:</label>
+        <input id="hero-detail-height"  name="height" type="number" step=".01" [(ngModel)]="model._height"/>
+    </div>
+    <button type="submit" class="button" >Submit</button>
+    <p [hidden]="!(saved)">Saved successfully!!</p>
+</form>

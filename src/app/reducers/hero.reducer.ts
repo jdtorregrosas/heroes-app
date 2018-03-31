@@ -5,6 +5,7 @@ export const RETRIEVE_HEROES = 'RETRIEVE_HEROES';
 export const RETRIEVE_HERO = 'RETRIEVE_HERO';
 export const RETRIEVE_HEROES_SUCCESS = 'RETRIEVE_HEROES_SUCCESS';
 export const RETRIEVE_HEROES_FAILED = 'RETRIEVE_HEROES_FAILED';
+export const SAVE_HERO = 'SAVE_HERO';
 
 export interface CustomAction extends Action {
     type: string;
@@ -42,6 +43,14 @@ export function heroReducer(state :State = initialState, action: CustomAction) {
     case RETRIEVE_HERO:
       return Object.assign({}, state, {
         currentHero : state.heroes.find(hero => hero._id === action.payload)
+      });
+
+    case SAVE_HERO:
+      var foundIndex = state.heroes.findIndex(x => x._id == action.payload._id);
+      let heroes = state.heroes.slice();
+      heroes[foundIndex] = action.payload;
+      return Object.assign({}, state, {
+        heroes
       });
 
     default:

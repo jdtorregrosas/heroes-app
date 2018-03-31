@@ -41,7 +41,7 @@ export class HeroDetailComponent implements OnInit{
     }
     getHero(id){
         this.store.dispatch({type: RETRIEVE_HERO, payload: id});
-        this.state$ = this.store.pipe(select('heroReducer'))
+        this.state$ = this.store.pipe(select('heroReducer'));
     }
 
     goToHome(id){
